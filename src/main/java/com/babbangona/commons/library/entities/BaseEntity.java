@@ -23,12 +23,12 @@ public abstract class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+/*
     @CreationTimestamp
     @Column(name = "date_created")
     private LocalDateTime dateCreated;
 
     @UpdateTimestamp
     @Column(name = "date_modified")
-    private LocalDateTime dateModified;
+    private LocalDateTime dateModified;*/
 }
