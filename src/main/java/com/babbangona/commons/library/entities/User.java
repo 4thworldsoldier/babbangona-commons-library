@@ -5,10 +5,16 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The persistent class for the user database table.
+ *
+ */
 @Getter
 @Setter
 @Entity(name = "users")
@@ -19,13 +25,8 @@ public class User  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private String email;
+    private String username;
     private String password;
-    private LocalDateTime lastLoginTime;
-    private LocalDateTime dateRegistered;
 
     @ManyToOne(optional=true)
     @JoinColumn(nullable= true, name = "tenant_id")
@@ -38,6 +39,7 @@ public class User  {
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<UserRole> userRoles;
+    private Set<Role> userRoles = new HashSet<>();
+
 
 }
