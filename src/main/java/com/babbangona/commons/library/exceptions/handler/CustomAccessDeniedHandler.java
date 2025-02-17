@@ -28,7 +28,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 
         BaseResponse<Void> errorResponse = new BaseResponse<>(
                 ResponseConstants.ERROR_CODE,
-                "Access Denied: " + accessDeniedException.getMessage()
+                "Error Occurred: " + accessDeniedException.getMessage()
         );
 
         response.getWriter().write(objectMapper.writeValueAsString(errorResponse));

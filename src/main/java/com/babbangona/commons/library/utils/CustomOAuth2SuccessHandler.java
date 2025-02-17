@@ -1,16 +1,13 @@
-package com.babbangona.commons.library.exceptions.handler;
+package com.babbangona.commons.library.utils;
 
-import com.babbangona.commons.library.dto.response.BaseResponse;
 import com.babbangona.commons.library.entities.User;
 import com.babbangona.commons.library.entities.Role;
 import com.babbangona.commons.library.entities.Tenant;
 import com.babbangona.commons.library.repo.UserRepository;
 import com.babbangona.commons.library.repo.RoleRepository;
 import com.babbangona.commons.library.repo.TenantRepository;
-import com.babbangona.commons.library.security.spring.JwtUtil;
-import com.babbangona.commons.library.utils.ResponseConstants;
+import com.babbangona.commons.library.security.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -25,7 +22,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Optional;
-import java.util.Set;
 
 @Component
 public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler {
@@ -96,14 +92,8 @@ public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler 
             userRepository.save(user);
         }
 
-
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
         String jwt = jwtUtil.generateToken(userDetails);
-/*
-        BaseResponse resp = new BaseResponse<>(ResponseConstants.SUCCESS_CODE,ResponseConstants.SUCCESS_MESSAGE,jwt);
-
-        response.getWriter().write(marshallJson.writeValueAsString(resp));*/
-        //response.getWriter().flush();
 
         // Redirect or respond with the JWT (here, using redirect)
         //Client side logical endpoint can be configured here.

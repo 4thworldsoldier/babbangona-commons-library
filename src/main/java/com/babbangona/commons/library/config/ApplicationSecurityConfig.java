@@ -1,23 +1,21 @@
 package com.babbangona.commons.library.config;
 
 import com.babbangona.commons.library.exceptions.handler.CustomAccessDeniedHandler;
-import com.babbangona.commons.library.exceptions.handler.CustomOAuth2SuccessHandler;
+import com.babbangona.commons.library.utils.CustomOAuth2SuccessHandler;
 import com.babbangona.commons.library.repo.RoleRepository;
 import com.babbangona.commons.library.repo.TenantRepository;
 import com.babbangona.commons.library.repo.UserRepository;
-import com.babbangona.commons.library.security.spring.JwtUtil;
-import com.babbangona.commons.library.security.spring.filter.JwtAuthenticationFilter;
-import com.babbangona.commons.library.security.spring.filter.JwtAuthorizationFilter;
+import com.babbangona.commons.library.security.JwtUtil;
+import com.babbangona.commons.library.security.filter.JwtAuthenticationFilter;
+import com.babbangona.commons.library.security.filter.JwtAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

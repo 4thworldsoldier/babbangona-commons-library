@@ -1,7 +1,7 @@
-package com.babbangona.commons.library.security.spring.filter;
+package com.babbangona.commons.library.security.filter;
 
 import com.babbangona.commons.library.entities.User;
-import com.babbangona.commons.library.security.spring.JwtUtil;
+import com.babbangona.commons.library.security.JwtUtil;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;

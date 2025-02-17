@@ -1,4 +1,4 @@
-package com.babbangona.commons.library.security.spring;
+package com.babbangona.commons.library.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
